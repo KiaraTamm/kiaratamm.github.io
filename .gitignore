@@ -5,3 +5,6 @@ _harp/_tools/configuration/reportconfig.py
 _harp/_tools/status.log
 
 .DS_Store
+
+# TEMPORARY
+_harp/data/
