@@ -1,0 +1,7 @@
+*.pyc
+_harp/_tools/configuration/exchange-tokens.json
+_harp/_tools/configuration/grants.json
+_harp/_tools/configuration/reportconfig.py
+_harp/_tools/status.log
+
+.DS_Store
