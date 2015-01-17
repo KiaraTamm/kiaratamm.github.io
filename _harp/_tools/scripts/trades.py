@@ -51,30 +51,31 @@ class fetchTradeData():
   json_data=open(os.path.abspath(os.path.join(os.getcwd(), os.pardir, "_tools/configuration/exchange-tokens.json"))).read()
   data = json.loads(json_data)
 
+  def populateTrades():
+    i = 0
+    while i == 0:
+      # request the trade results from the exchange's API
+      request_results = "java -jar NuGetLastTrades.jar %s \"%s\" \"%s\" %s %d > /dev/null 2>&1" % (exchange, apitoken, secret, pair, reportRange)
+      rr = subprocess.Popen(request_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      log.logging.debug("Processing (%s, %s, %s)" %(exchange, pair, timefr))
+      rr.communicate()
 
-  def request_trades():
-    # request the trade results from the exchange's API
-    request_results = "java -jar NuGetLastTrades.jar %s \"%s\" \"%s\" %s %d > /dev/null 2>&1" % (exchange, apitoken, secret, pair, reportRange)
-    rr = subprocess.Popen(request_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    log.logging.debug("Processing (%s, %s, %s)" %(exchange, pair, timefr))
-    rr.communicate()
+      # move results to exchange/pair directory
+      move_results = "mv last_trades_*.json ../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr)
+      mv = subprocess.Popen(move_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      log.logging.debug("Moving results to ../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr))
+      mv.communicate()
 
-  def move_trades():
-    # move results to exchange/pair directory
-    move_results = "mv last_trades_*.json ../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr)
-    mv = subprocess.Popen(move_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    log.logging.debug("Moving results to ../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr))
-    mv.communicate()
-
-  def confirm_trades():
-    # confirm that the results were actually retrieved, if not, retry
-    trade_results = ("../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr))
-    ftest = os.path.isfile(trade_results)
-    if not os.path.isfile(trade_results):
-      # something went wrong, retry
-      log.logging.critical("File was not created for ../data/%s_%s/trades_%s.json, retrying..." % (exchange, dirPair, timefr))
-      request_trades()
-
+      # confirm that the results were actually retrieved, if not, retry
+      trade_results = ("../data/%s_%s/trades_%s.json" % (exchange, dirPair, timefr))
+      ftest = os.path.isfile(trade_results)
+      if not os.path.isfile(trade_results):
+        # something went wrong, retry
+        log.logging.critical("File was not created for ../data/%s_%s/trades_%s.json, retrying..." % (exchange, dirPair, timefr))
+        i = 0
+      
+      else:
+        i = 1
 
   # iterate through the different bots
   for d in data["bots"]:
@@ -95,33 +96,23 @@ class fetchTradeData():
         if report == "yesterday":
           reportRange = yesterday
           timefr = "lastday"
-          request_trades()
-          move_trades()
-          confirm_trades()
+          populateTrades()
         elif report == "lastweek":
           reportRange = lastweek
           timefr = "lastweek"
-          request_trades()
-          move_trades()
-          confirm_trades()
+          populateTrades()
         elif report == "lastmonth":
           reportRange = lastmonth
           timefr = "last30days"
-          request_trades()
-          move_trades()
-          confirm_trades()
+          populateTrades()
         elif report == "all":
           reportRange = launch
           timefr = "alltime"
-          request_trades()
-          move_trades()
-          confirm_trades()
+          populateTrades()
         else:
           reportRange = d["range"]
           timefr = "custom"
-          request_trades()
-          move_trades()
-          confirm_trades()
+          populateTrades()
 
     else:
       exchange = d['market']

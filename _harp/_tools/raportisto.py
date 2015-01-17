@@ -26,13 +26,26 @@ log.logging.critical('STARTING REPORTING RUN')
 # Create new directories for the bot data to be stored in if they don't already exist and put them into the _harp/data directory
 import initialize
 
+
 # STEP 2 : ITERATE THROUGH OPTION FILES AND REMOVE CONFIDENTIAL PARAMETERS
 # ========================================================================
 # Iterate through each options.json file in the and remove confidential parameters (API keys, location of nu daemon, etc.)
-initialize.bot_directories
+# (included in initialize.py)
 
 
-# STEP 3 : REQUEST TRADE DATA FROM EXCHANGE API
+# STEP 3 : ITERATE THROUGH LATEST BOT LOG FILES AND CREATE WALL_SHIFTS.JSON
+# =========================================================================
+# Iterate through each bot's 'logs' directory and copy the wall_shifts.json file from the most recent one to the matching exchange pair data directory.
+# (included in initialize.py)
+
+
+# STEP 4 : ITERATE THROUGH LATEST BOT LOG FILES AND CREATE ORDERS_HISTORY.JSON
+# ============================================================================
+# Iterate through each bot's 'logs' directory and copy the orders_history.json file from the most recent one to the matching exchange pair data directory.
+# (included in initialize.py)
+
+
+# STEP 5 : REQUEST TRADE DATA FROM EXCHANGE API
 # ========================================================================
 # Request current trade data from the active markets via each exchanges' API. Place each of the trade records (for the different time frames) in their respective _harp/data/exchange_marketpair directories.
 import trades
