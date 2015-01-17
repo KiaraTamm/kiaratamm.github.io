@@ -126,7 +126,9 @@ def getOrdersHistory(log_dir, new_dir):
   mo = subprocess.Popen(move_orders , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
   mo.communicate()
 
-
+global root_dir
+global report_dir
+global report_base_url
 # initialize where raportisto can find all data and files it will need
 root_dir = reportconfig.NUBOTDIRS
 log.logging.critical('Bot directory root path: %s'%(root_dir))
