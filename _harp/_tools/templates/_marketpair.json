@@ -6,14 +6,16 @@
     "liquidityAddress": "",
     "currentOrders": [
       {
-        "amount": 0,
+        "orderAmount": 0,
+        "exchangeAmount": 0,
         "orderCurrency": "",
         "paymentCurrency": "",
         "orderType": "BUY",
         "price": 0
       },
       {
-        "amount": 0,
+        "orderAmount": 0,
+        "exchangeAmount": 0,
         "orderCurrency": "",
         "paymentCurrency": "",
         "orderType": "SELL",

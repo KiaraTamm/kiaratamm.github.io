@@ -84,13 +84,13 @@ def getPrecision(exchangeCurrency):
   # get the level of percision for decimal places depending on the currency
   # being evaluated
   global unitPrecision
-  if exchangeCurrency == "btc":
+  if exchangeCurrency.lower() == "btc":
     unitPrecision = 8
-  elif exchangeCurrency == "ppc":
+  elif exchangeCurrency.lower() == "ppc":
     unitPrecision = 6
-  elif exchangeCurrency == "eur":
+  elif exchangeCurrency.lower() == "eur":
     unitPrecision = 4
-  elif exchangeCurrency == "usd":
+  elif exchangeCurrency.lower() == "usd":
     unitPrecision = 4
   else:
     unitPrecision = 4
@@ -185,7 +185,8 @@ def resetOrderHistoryFill():
 def calcOrderTotals(market_pair, set_data, data):
   # call this when you need to calculate the totals and assign values for 
   # each of the market's active orders
-  each_order = set_data['digest']
+  each_order = set_data['digest'] 
+
   # calculate totals and assign values
   ohSellTotal = []
   ohBuyTotal = []
@@ -200,37 +201,52 @@ def calcOrderTotals(market_pair, set_data, data):
     ohAmount = order['amount']
     ohPrice = order['price']
 
-    if ohOrderType == "SELL":
+    if ohOrderType.lower() == "sell":
       ohSellTotal.append(ohAmount)
       ohSellOrderCurrency = order['order_currency']
       ohSellPaymentCurrency = order['payment_currency']
       ohSellPrice.append(ohPrice)
 
-    if ohOrderType == "BUY":
+    if ohOrderType.lower() == "buy":
       ohBuyTotal.append(ohAmount)
       ohBuyOrderCurrency = order['order_currency']
       ohBuyPaymentCurrency = order['payment_currency']
       ohBuyPrice.append(ohPrice)
 
-
+  # sum the open orders
   ohSellTotal = (sum(ohSellTotal))
   ohBuyTotal = (sum(ohBuyTotal))
+  # remove instances of '0' values from the ohBuyPrice and ohSellPrice list
+  ohBuyPrice = filter(lambda a: a != 0, ohBuyPrice)
+  ohSellPrice = filter(lambda a: a != 0, ohSellPrice)
+  # calculate the average price between the two orders; in theory, the same
   ohAvgBuyPrice = reduce(lambda x, y: x + y, ohBuyPrice) / len(ohBuyPrice)
   ohAvgSellPrice = reduce(lambda x, y: x + y, ohSellPrice) / len(ohSellPrice)
 
   ohSummaryData = data['%s'%(market_pair)]['currentOrders']
 
   for ohSummaryDataPart in ohSummaryData:
-    if ohSummaryDataPart['orderType'] == "BUY":
-      ohSummaryDataPart['amount'] = ohBuyTotal
+
+    if ohSummaryDataPart['orderType'].lower() == "buy":
+      # get the level of precision for the nbtAmount
+      getPrecision(ohBuyOrderCurrency)
+      ohSummaryDataPart['orderAmount'] = round(ohBuyTotal, unitPrecision)
       ohSummaryDataPart['orderCurrency'] = ohBuyOrderCurrency
       ohSummaryDataPart['paymentCurrency'] = ohBuyPaymentCurrency
+      # get the level of precision for the nbtAmount
+      getPrecision(ohBuyPaymentCurrency)
+      ohSummaryDataPart['exchangeAmount'] = round((ohBuyTotal * ohAvgBuyPrice), unitPrecision)
       ohSummaryDataPart['price'] = ohAvgBuyPrice
 
-    if ohSummaryDataPart['orderType'] == "SELL":
-      ohSummaryDataPart['amount'] = ohSellTotal
+    if ohSummaryDataPart['orderType'].lower() == "sell":
+      # get the level of precision for the nbtAmount
+      getPrecision(ohSellOrderCurrency)
+      ohSummaryDataPart['orderAmount'] = round(ohSellTotal, unitPrecision)
       ohSummaryDataPart['orderCurrency'] = ohSellOrderCurrency
       ohSummaryDataPart['paymentCurrency'] = ohSellPaymentCurrency
+      # get the level of precision for the nbtAmount
+      getPrecision(ohSellPaymentCurrency)
+      ohSummaryDataPart['exchangeAmount'] = round((ohSellTotal * ohAvgSellPrice), unitPrecision)
       ohSummaryDataPart['price'] = ohAvgSellPrice
 
 
@@ -507,7 +523,7 @@ def tradeFill(bot_dir, t_range):
 
         if switch == 1:
           # for all "swapped" markets where NBT isn't the base currency
-          if type == "SELL":
+          if type.lower() == "sell":
 
             # sell commission
             if amount > 0:
@@ -522,7 +538,7 @@ def tradeFill(bot_dir, t_range):
             sellValueExCurrency.append(amount * price)
             sellTradeTimestamps.append(timestamp)
           
-          elif type == "BUY":
+          elif type.lower() == "buy":
 
             # fee for sales needs to be converted from base currency to NBT
             feeConversion = (fee / price)
@@ -545,7 +561,7 @@ def tradeFill(bot_dir, t_range):
         
         else:
           # for all markets where NBT is the base currency
-          if type == "SELL":
+          if type.lower() == "sell":
 
             # fee for sales needs to be converted from base currency to NBT
             feeConversion = (fee / price)
@@ -563,7 +579,7 @@ def tradeFill(bot_dir, t_range):
             sellValueExCurrency.append(amount * price)
             sellTradeTimestamps.append(timestamp)
           
-          elif type == "BUY":
+          elif type.lower() == "buy":
 
             # buy commission
             if amount > 0:
