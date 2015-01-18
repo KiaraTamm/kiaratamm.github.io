@@ -7,4 +7,4 @@ _harp/_tools/status.log
 .DS_Store
 
 # TEMPORARY
-_harp/data/
+_harp/data/*

@@ -196,32 +196,44 @@ def calcOrderTotals(market_pair, set_data, data):
   ohBuyOrderCurrency = ""
   ohSellPaymentCurrency = ""
   ohBuyPaymentCurrency = ""
+  ohBuyCount = 0
+  ohSellCount = 0
+
   for order in each_order:
     ohOrderType = order['order_type']
     ohAmount = order['amount']
     ohPrice = order['price']
 
     if ohOrderType.lower() == "sell":
+      ohSellCount += 1
       ohSellTotal.append(ohAmount)
       ohSellOrderCurrency = order['order_currency']
       ohSellPaymentCurrency = order['payment_currency']
       ohSellPrice.append(ohPrice)
 
     if ohOrderType.lower() == "buy":
+      ohBuyCount += 1
       ohBuyTotal.append(ohAmount)
       ohBuyOrderCurrency = order['order_currency']
       ohBuyPaymentCurrency = order['payment_currency']
       ohBuyPrice.append(ohPrice)
 
-  # sum the open orders
-  ohSellTotal = (sum(ohSellTotal))
-  ohBuyTotal = (sum(ohBuyTotal))
-  # remove instances of '0' values from the ohBuyPrice and ohSellPrice list
-  ohBuyPrice = filter(lambda a: a != 0, ohBuyPrice)
-  ohSellPrice = filter(lambda a: a != 0, ohSellPrice)
-  # calculate the average price between the two orders; in theory, the same
-  ohAvgBuyPrice = reduce(lambda x, y: x + y, ohBuyPrice) / len(ohBuyPrice)
-  ohAvgSellPrice = reduce(lambda x, y: x + y, ohSellPrice) / len(ohSellPrice)
+  # only generate buy and sell averages if orders of those types exist
+  if ohSellCount > 0: 
+    # sum the open orders
+    ohSellTotal = (sum(ohSellTotal))
+    # remove instances of '0' values from the ohSellPrice list
+    ohSellPrice = filter(lambda a: a != 0, ohSellPrice)
+    # calculate the average price between the two orders; in theory, the same
+    ohAvgSellPrice = reduce(lambda x, y: x + y, ohSellPrice) / len(ohSellPrice)
+  
+  if ohBuyCount > 0: 
+    # sum the open orders
+    ohBuyTotal = (sum(ohBuyTotal))
+    # remove instances of '0' values from the ohBuyPricelist
+    ohBuyPrice = filter(lambda a: a != 0, ohBuyPrice)
+    # calculate the average price between the two orders; in theory, the same
+    ohAvgBuyPrice = reduce(lambda x, y: x + y, ohBuyPrice) / len(ohBuyPrice)
 
   ohSummaryData = data['%s'%(market_pair)]['currentOrders']
 
