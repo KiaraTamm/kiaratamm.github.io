@@ -1,0 +1,38 @@
+{
+    "options": {
+        "apikey": "private", 
+        "apisecret": "private", 
+        "dualside": true, 
+        "emergency-timeout": 60, 
+        "exchangename": "ccedk", 
+        "executeorders": true, 
+        "hipchat": true, 
+        "keep-proceeds": 0, 
+        "mail-notifications": false, 
+        "mail-recipient": "private", 
+        "nubitaddress": "B7mmVdVQ1SNNcT9zuQRK1B3Cbvo8vHeoB1", 
+        "nudip": "private", 
+        "nudport": "private", 
+        "pair": "nbt_btc", 
+        "priceincrement": "0.001", 
+        "rpcpass": "private", 
+        "rpcuser": "private", 
+        "secondary-peg-options": {
+            "backup-feeds": {
+                "backup1": {
+                    "name": "bitcoinaverage"
+                }, 
+                "backup2": {
+                    "name": "btce"
+                }
+            }, 
+            "main-feed": "coinbase", 
+            "price-distance-threshold": 10, 
+            "price-offset": 0.5, 
+            "wallchange-treshold": 0.125
+        }, 
+        "submit-liquidity": true, 
+        "txfee": "0.2", 
+        "verbose": false
+    }
+}

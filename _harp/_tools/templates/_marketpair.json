@@ -1,0 +1,141 @@
+{
+  "market_pair": {
+    "pairURL":"",
+    "configuration": "",
+    "botBehavior": "",
+    "liquidityAddress": "",
+    "currentOrders": [
+      {
+        "orderAmount": 0,
+        "exchangeAmount": 0,
+        "orderCurrency": "",
+        "paymentCurrency": "",
+        "orderType": "BUY",
+        "price": 0
+      },
+      {
+        "orderAmount": 0,
+        "exchangeAmount": 0,
+        "orderCurrency": "",
+        "paymentCurrency": "",
+        "orderType": "SELL",
+        "price": 0
+      }
+    ],
+    "orderDataFile": "",
+    "wallshifts":     {
+      "buyPrice": 0, 
+      "crypto": "", 
+      "currency": "", 
+      "otherFeeds": "", 
+      "price": 0, 
+      "sellPrice": 0, 
+      "source": ""
+    },
+    "wallDataFile": "",
+    "frozen": [],
+    "nonOrderBalance": [],
+    "trades": {
+      "day": {
+        "filePath": "",
+        "sell": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        },
+        "buy": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        }
+      },
+      "week": {
+        "filePath": "",
+        "sell": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        },
+        "buy": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        }
+      },
+      "thirty": {
+        "filePath": "",
+        "sell": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        },
+        "buy": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        }
+      },
+      "lifetime": {
+        "filePath": "",
+        "sell": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        },
+        "buy": {
+          "orders": 0,
+          "sumSales": 0,
+          "sumFees": 0,
+          "avgOrderSize": 0,
+          "avgPrice": 0,
+          "lowPrice": 0,
+          "highPrice": 0,
+          "lastTradeTime": 0,
+          "commission": 0
+        }
+      }
+    }
+  }
+}

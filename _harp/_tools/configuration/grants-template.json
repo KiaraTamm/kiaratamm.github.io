@@ -1,0 +1,145 @@
+// IMPORTANT! Delete these comments before running the reporting tool and 
+// save the updated file as 'grants.json'.
+//
+// NOTE: Additional details and instructions will be included in a future build
+// of the Reportisto tool. Until then, if you have questions, please contact
+// Ben through the Nu discussion forums (discuss.nubits.com).
+//
+// EXAMPLE:
+
+/*{
+  "custodian": "Kiara Tamm",
+  "profileName": "KTm",
+  "profilePath": "https://discuss.nubits.com/users/ktm",
+  "grants": [
+    {
+      "grantAddress": "B7mmVdVQ1SNNcT9zuQRK1B3Cbvo8vHeoB1",
+      "status": "active",
+      "grantAmount": 1836450,
+      "custodianFee": 36450,
+      "type": "dual-side",
+      "shareholderApprovalInNuBlock": 15459,
+      "grantTXID": "65394263c260e75b5f9fb0a8bbe95f71f8bd752bdc8e9a1ea21179c3e91f64d5",
+      "proposalURL": "https://gist.github.com/KiaraTamm/c30172f9d5d73e970bf2",
+      "discussionURL": "https://discuss.nubits.com/t/proposal-to-operate-a-nubits-grant-to-provide-early-stage-dual-side-liquidity-and-shareholder-dividends",
+      "fundsActive": [],
+      "fundsReserve": [
+        {
+          "currency": "nbt",
+          "address": "B5BMEH2Z9ZE5cHFpFg9BJ4wYm9aeBFK34W",
+          "amount": 380842.6311,
+          "source": "BTER NBT/BTC Liquidity Adjustment",
+          "notes": ""
+        },
+        {
+          "currency": "nbt",
+          "address": "B8JE7acMiy58Vp3tiRGGm1GXevpBzDRPTJ",
+          "amount": 140978.5251,
+          "source": "CCEDK NBT/USD Liquidity Adjustment",
+          "notes": "Includes a withdrawal of 24,996.5 NBT to fund CCEX NBT/USD"
+        },
+        {
+          "currency": "nbt",
+          "address": "B5xshH1sxTMMXkrkDu91r5HCNX9sTfmP4L",
+          "amount": 313978.5251,
+          "source": "CCEDK NBT/PPC Liquidity Adjustment",
+          "notes": "Includes a withdrawal of 24,996.5 NBT to fund CCEX NBT/USD"
+        },
+        {
+          "currency": "nbt",
+          "address": "BGAv55c7ChwfXycxiqnL9YA8sPiKT7dzJq",
+          "amount": 53159.1827,
+          "source": "CCEDK NBT/BTC Liquidity Adjustment",
+          "notes": "Includes a withdrawal of 24,996.5 NBT to fund CCEX NBT/USD"
+        },
+        {
+          "currency": "nbt",
+          "address": "B5H8JaCTkokoFkpFqbNeXsE4YEPnHUmDG9",
+          "amount": 25000.9000,
+          "source": "CCEX Withdrawal",
+          "notes": ""
+        },
+        {
+          "currency": "nbt",
+          "address": "B5H8JaCTkokoFkpFqbNeXsE4YEPnHUmDG9",
+          "amount": 400000.0000,
+          "source": "Initial grant",
+          "notes": "Spread amongst various addresses due to how pre-Coin Control versions of Nu handle output transactions in the wallet."
+        }
+      ],
+      "dividendYielding": true,
+      "dividendsPaid": [
+        {
+          "description": "Period 001A Dividend Distribution",
+          "timestamp": 1416539478,
+          "amountNBT": 50000,
+          "amountPPC": 68306,
+          "pricePPCNBT": 0.732,
+          "distributionAddresses": 481,
+          "distributionTXID": "b7f3f769ac81322e60e339946d97411f85fca29a8689cb004b625a0e215e1640",
+          "nuBlockHeight": 86004
+        }
+      ],
+      "estNextDivDate": 0,
+      "estNextDivAmountNBT": 0,
+      "futureDividendWitheld": [
+        {
+          "address": "",
+          "currency": "",
+          "amount": 0
+        }
+      ]
+    }
+  ]
+}*/
+
+{
+  "custodian": "",
+  "profileName": "",
+  "profilePath": "",
+  "grants": [
+    {
+      "grantAddress": "",
+      "status": "",
+      "grantAmount": 0,
+      "custodianFee": 0,
+      "type": "",
+      "shareholderApprovalInNuBlock": 0,
+      "grantTXID": "",
+      "proposalURL": "",
+      "discussionURL": "",
+      "fundsActive": [],
+      "fundsReserve": [
+        {
+          "currency": "",
+          "address": "",
+          "amount": 0,
+          "source": "",
+          "notes": ""
+        }
+      ],
+      "dividendYielding": true,
+      "dividendsPaid": [
+        {
+          "description": "",
+          "timestamp": 0,
+          "amountNBT": 0,
+          "amountPPC": 0,
+          "pricePPCNBT": 0,
+          "distributionAddresses": 0,
+          "distributionTXID": "",
+          "nuBlockHeight": 0
+        }
+      ],
+      "estNextDivDate": 0,
+      "estNextDivAmountNBT": 0,
+      "futureDividendWitheld": [
+        {
+          "address": "",
+          "currency": "",
+          "amount": 0
+        }
+      ]
+    }
+  ]
+}

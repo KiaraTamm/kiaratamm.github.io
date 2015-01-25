@@ -1,0 +1,44 @@
+{
+  "bots":[
+  {
+    "market": "",
+    "pair": "",
+    "token": "",
+    "secret": "",
+    "range": "all",
+    "status": "active"
+  }
+  ]
+}
+
+// IMPORTANT! Delete these comments before running the reporting tool and 
+// save the updated file as 'exchange-tokens.json'.
+//
+// EXAMPLE (with two exchanges):
+// {
+//   "bots":[
+//     {
+//       "market": "ccedk",
+//       "pair": "nbt_usd",
+//       "token": "8SZXOVUDCFT0EIC8KQ5QSR3Eaac159e4cf1cb07665",
+//       "secret": "aac159e4cf1cb076658SZXOVUDCFT0EIC8KQ5QSR3E",
+//       "range": "all",
+//       "status": "active"
+//     },
+//     {
+//       "market": "bter",
+//       "pair": "nbt_btc",
+//       "token": "EIC8KQ5QSR3Eaac159XOVUDCFTe4cf1cb076658SZ0",
+//       "secret": "76658SZXOVUDCFT0aac159e4cf1cb0QSR3EEIC8KQ5",
+//       "range": "all",
+//       "status": "active"
+//     }
+//   ]
+// }
+//
+// Note: If you need to add additional exchange account credentials, add a 
+// comma after the last item in the list and copy the full set of data within 
+// the innermost { .. }.
+//
+// A market's status can be either "active" or "inactive" -- inactive markets
+// will be skipped over by the reporting tool's functions.
