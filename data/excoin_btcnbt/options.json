@@ -1,0 +1,37 @@
+{
+    "options": {
+        "apikey": "private", 
+        "apisecret": "private", 
+        "dualside": false, 
+        "emergency-timeout": 60, 
+        "exchangename": "excoin", 
+        "executeorders": false, 
+        "hipchat": false, 
+        "keep-proceeds": 0, 
+        "mail-notifications": false, 
+        "mail-recipient": "private", 
+        "nubitaddress": "", 
+        "nudip": "private", 
+        "nudport": "private", 
+        "pair": "nbt_btc", 
+        "priceincrement": "0.001", 
+        "rpcpass": "private", 
+        "rpcuser": "private", 
+        "secondary-peg-options": {
+            "backup-feeds": {
+                "backup1": {
+                    "name": "bitcoinaverage"
+                }, 
+                "backup2": {
+                    "name": "btce"
+                }
+            }, 
+            "main-feed": "coinbase", 
+            "price-distance-threshold": 10, 
+            "wallchange-treshold": 0.125
+        }, 
+        "submit-liquidity": false, 
+        "txfee": "0.2", 
+        "verbose": false
+    }
+}
