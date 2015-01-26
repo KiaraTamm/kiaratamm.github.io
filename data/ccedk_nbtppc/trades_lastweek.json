@@ -1,5 +1,17 @@
 {
 
+"Trade_64551":{
+"id":"64551",
+"order_id":"null",
+"exchange":"ccedk",
+"pair":"nbtppc",
+"type":"BUY",
+"price":2.29034101,
+"amount":2187.44718718,
+"fee":4.37489436,
+"timestamp":1422298956000
+},
+
 "Trade_64542":{
 "id":"64542",
 "order_id":"null",
