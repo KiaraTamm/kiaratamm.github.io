@@ -28,8 +28,8 @@
             }, 
             "main-feed": "btce", 
             "price-distance-threshold": 10, 
-            "price-offset": 0.5, 
-            "wallchange-treshold": 0.125
+            "price-offset": 0.4, 
+            "wallchange-treshold": 0.2
         }, 
         "submit-liquidity": true, 
         "txfee": "0.2", 
