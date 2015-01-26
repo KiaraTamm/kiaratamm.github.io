@@ -24,9 +24,6 @@
                 }, 
                 "backup2": {
                     "name": "btce"
-                }, 
-                "backup3": {
-                    "name": "coinbase"
                 }
             }, 
             "main-feed": "bitcoinaverage", 
