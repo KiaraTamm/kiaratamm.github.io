@@ -1,12 +1,12 @@
 [
     {
-        "buyprice": "0.00362949", 
+        "buyprice": "0.00363932", 
         "crypto": "btc", 
         "currency": "USD", 
-        "otherfeeds": "{ feed : bitcoinaverage - price : 273.87}  { feed : blockchain - price : 274.25}  { feed : btce - price : 266.926}  ", 
-        "price": "273.87", 
-        "sellprice": "0.0036733", 
+        "otherfeeds": "{ feed : bitcoinaverage - price : 273.13}  { feed : blockchain - price : 273.58}  { feed : btce - price : 264.099}  ", 
+        "price": "273.13", 
+        "sellprice": "0.00368326", 
         "source": "bitcoinaverage", 
-        "timestamp": "Mon Jan 26 17:17:50 EST 2015"
+        "timestamp": "Mon Jan 26 17:26:59 EST 2015"
     }
 ]
