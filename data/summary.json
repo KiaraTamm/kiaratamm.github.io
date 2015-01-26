@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.02242363,
+                                        "buyPrice":2.03485656,
                                         "crypto":"ppc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : btce - price : 0.491}  { feed : coinmarketcap_ne - price : 0.50384}  { feed : coinmarketcap_no - price : 0.501738}  ",
-                                        "price":0.491,
-                                        "sellPrice":2.05093686,
+                                        "otherFeeds":"{ feed : btce - price : 0.488}  { feed : coinmarketcap_ne - price : 0.497688}  { feed : coinmarketcap_no - price : 0.500056}  ",
+                                        "price":0.488,
+                                        "sellPrice":2.06354508,
                                         "source":"btce"
                                     }
                                 }
@@ -312,13 +312,13 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtbtc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":0.00333762,
+                                        "buyPrice":0.00326992,
                                         "crypto":"btc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : bitcoinaverage - price : 297.52}  { feed : btce - price : 292.0}  ",
-                                        "price":297.52,
-                                        "sellPrice":0.00338468,
-                                        "source":"bitcoinaverage"
+                                        "otherFeeds":"{ feed : coinbase - price : 303.68}  { feed : bitcoinaverage - price : 297.35}  { feed : btce - price : 291.287}  ",
+                                        "price":303.68,
+                                        "sellPrice":0.00331602,
+                                        "source":"coinbase"
                                     }
                                 }
                             },
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422271333775,
+    "reportGenerated":1422271985782,
     "reportRepository":"https://kiaratamm.github.io/"
 }
