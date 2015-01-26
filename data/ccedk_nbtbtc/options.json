@@ -14,7 +14,7 @@
         "nudip": "private", 
         "nudport": "private", 
         "pair": "nbt_btc", 
-        "priceincrement": "0.001", 
+        "priceincrement": "0.0003", 
         "rpcpass": "private", 
         "rpcuser": "private", 
         "secondary-peg-options": {
@@ -24,6 +24,9 @@
                 }, 
                 "backup2": {
                     "name": "btce"
+                }, 
+                "backup3": {
+                    "name": "coinbase"
                 }
             }, 
             "main-feed": "bitcoinaverage", 
