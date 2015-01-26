@@ -1,12 +1,12 @@
 [
     {
-        "buyprice": "2.38371223", 
+        "buyprice": "2.35546919", 
         "crypto": "ppc", 
         "currency": "USD", 
-        "otherfeeds": "{ feed : btce - price : 0.417}  { feed : coinmarketcap_ne - price : 0.436638}  { feed : coinmarketcap_no - price : 0.437109}  ", 
-        "price": "0.417", 
-        "sellprice": "2.41248921", 
+        "otherfeeds": "{ feed : btce - price : 0.422}  { feed : coinmarketcap_ne - price : 0.438864}  { feed : coinmarketcap_no - price : 0.437814}  ", 
+        "price": "0.422", 
+        "sellprice": "2.38390521", 
         "source": "btce", 
-        "timestamp": "Mon Jan 26 11:07:43 EST 2015"
+        "timestamp": "Mon Jan 26 11:16:52 EST 2015"
     }
 ]
