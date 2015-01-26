@@ -46,20 +46,20 @@
                                     "configuration":"https://kiaratamm.github.io/data/ccedk_nbtppc/options.json",
                                     "currentOrders":[
                                         {
-                                            "exchangeAmount":65335.213651,
-                                            "orderAmount":32568.5851,
+                                            "exchangeAmount":65335.191342,
+                                            "orderAmount":32173.8034,
                                             "orderCurrency":"NBT",
                                             "orderType":"BUY",
                                             "paymentCurrency":"PPC",
-                                            "price":2.00608081
+                                            "price":2.0306953
                                         },
                                         {
-                                            "exchangeAmount":15817.88164,
+                                            "exchangeAmount":16011.966022,
                                             "orderAmount":7775.3462,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"PPC",
-                                            "price":2.03436364
+                                            "price":2.05932515
                                         }
                                     ],
                                     "frozen":[],
@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.01421907,
+                                        "buyPrice":1.94707843,
                                         "crypto":"ppc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : btce - price : 0.493}  { feed : coinmarketcap_ne - price : 0.495943}  { feed : coinmarketcap_no - price : 0.489787}  ",
-                                        "price":0.493,
-                                        "sellPrice":2.04261663,
+                                        "otherFeeds":"{ feed : btce - price : 0.51}  { feed : coinmarketcap_ne - price : 0.492953}  { feed : coinmarketcap_no - price : 0.493923}  ",
+                                        "price":0.51,
+                                        "sellPrice":1.97452941,
                                         "source":"btce"
                                     }
                                 }
@@ -187,20 +187,20 @@
                                     "configuration":"https://kiaratamm.github.io/data/ccedk_nbtbtc/options.json",
                                     "currentOrders":[
                                         {
-                                            "exchangeAmount":3.09934965,
-                                            "orderAmount":860.1301,
+                                            "exchangeAmount":13.57388547,
+                                            "orderAmount":3750.7593,
                                             "orderCurrency":"NBT",
                                             "orderType":"BUY",
                                             "paymentCurrency":"BTC",
-                                            "price":0.00360335
+                                            "price":0.00361897
                                         },
                                         {
-                                            "exchangeAmount":346.2073314,
-                                            "orderAmount":94743.6015,
+                                            "exchangeAmount":337.15148324,
+                                            "orderAmount":91866.8892,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"BTC",
-                                            "price":0.00365415
+                                            "price":0.00367
                                         }
                                     ],
                                     "frozen":[],
@@ -312,12 +312,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtbtc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":0.00361897,
+                                        "buyPrice":0.00358889,
                                         "crypto":"btc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : bitcoinaverage - price : 274.39}  { feed : btce - price : 267.71}  ",
-                                        "price":274.39,
-                                        "sellPrice":0.00367,
+                                        "otherFeeds":"{ feed : bitcoinaverage - price : 276.69}  { feed : btce - price : 270.315}  ",
+                                        "price":276.69,
+                                        "sellPrice":0.00363949,
                                         "source":"bitcoinaverage"
                                     }
                                 }
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422240696479,
+    "reportGenerated":1422241345816,
     "reportRepository":"https://kiaratamm.github.io/"
 }
