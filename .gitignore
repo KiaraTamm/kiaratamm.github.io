@@ -7,7 +7,7 @@ _harp/_tools/status.log
 .DS_Store
 
 # When published, the data directory will appear at the root level (this strips out the directory used to generate that one)
-_harp/*
+_harp/
 
 # remove front-end components until it is ready
 assets/*
