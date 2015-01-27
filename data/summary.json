@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.650688,
+                                        "buyPrice":2.6577754,
                                         "crypto":"ppc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : btce - price : 0.375}  { feed : coinmarketcap_ne - price : 0.385958}  { feed : coinmarketcap_no - price : 0.389948}  ",
-                                        "price":0.375,
-                                        "sellPrice":2.682688,
+                                        "otherFeeds":"{ feed : btce - price : 0.374}  { feed : coinmarketcap_ne - price : 0.382826}  { feed : coinmarketcap_no - price : 0.386561}  ",
+                                        "price":0.374,
+                                        "sellPrice":2.68986096,
                                         "source":"btce"
                                     }
                                 }
@@ -223,15 +223,15 @@
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtbtc/trades_lastday.json",
                                             "sell":{
-                                                "avgOrderSize":3133.54067928,
-                                                "avgPrice":0.00370012,
+                                                "avgOrderSize":2953.59213056,
+                                                "avgPrice":0.00373722,
                                                 "commission":0.002,
                                                 "highPrice":0.00396282,
                                                 "lastTradeTime":1422357033000,
                                                 "lowPrice":0.00327398,
-                                                "orders":10,
-                                                "sumFees":62.67078953,
-                                                "sumSales":31335.4067928
+                                                "orders":9,
+                                                "sumFees":53.16463726,
+                                                "sumSales":26582.32917504
                                             }
                                         },
                                         "lifetime":{
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422357101150,
+    "reportGenerated":1422357700644,
     "reportRepository":"https://kiaratamm.github.io/"
 }
