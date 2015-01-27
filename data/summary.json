@@ -46,20 +46,20 @@
                                     "configuration":"https://kiaratamm.github.io/data/ccedk_nbtppc/options.json",
                                     "currentOrders":[
                                         {
-                                            "exchangeAmount":60968.116899,
-                                            "orderAmount":25638.2975,
+                                            "exchangeAmount":60968.096096,
+                                            "orderAmount":25392.9463,
                                             "orderCurrency":"NBT",
                                             "orderType":"BUY",
                                             "paymentCurrency":"PPC",
-                                            "price":2.37800957
+                                            "price":2.40098551
                                         },
                                         {
-                                            "exchangeAmount":21490.264668,
+                                            "exchangeAmount":21697.900066,
                                             "orderAmount":8929.2835,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"PPC",
-                                            "price":2.4067177
+                                            "price":2.42997101
                                         }
                                     ],
                                     "frozen":[],
@@ -70,15 +70,15 @@
                                     "trades":{
                                         "day":{
                                             "buy":{
-                                                "avgOrderSize":2480.096609,
-                                                "avgPrice":2.21798,
+                                                "avgOrderSize":2157.770484,
+                                                "avgPrice":2.246669,
                                                 "commission":0.002,
-                                                "highPrice":2.400986,
-                                                "lastTradeTime":1422320538000,
+                                                "highPrice":2.430337,
+                                                "lastTradeTime":1422324452000,
                                                 "lowPrice":1.978108,
-                                                "orders":19,
-                                                "sumFees":94.243671,
-                                                "sumSales":47121.835578
+                                                "orders":22,
+                                                "sumFees":94.941901,
+                                                "sumSales":47470.950639
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtppc/trades_lastday.json",
                                             "sell":{
@@ -95,15 +95,15 @@
                                         },
                                         "lifetime":{
                                             "buy":{
-                                                "avgOrderSize":4314.613285,
-                                                "avgPrice":1.734248,
+                                                "avgOrderSize":4305.636289,
+                                                "avgPrice":1.735732,
                                                 "commission":0.002,
                                                 "highPrice":4.004073,
-                                                "lastTradeTime":1422320538000,
+                                                "lastTradeTime":1422324452000,
                                                 "lowPrice":0.002113,
-                                                "orders":1400,
-                                                "sumFees":12080.91719,
-                                                "sumSales":6040458.598522
+                                                "orders":1403,
+                                                "sumFees":12081.61542,
+                                                "sumSales":6040807.713584
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtppc/trades_alltime.json",
                                             "sell":{
@@ -120,15 +120,15 @@
                                         },
                                         "thirty":{
                                             "buy":{
-                                                "avgOrderSize":5303.85002,
-                                                "avgPrice":2.142946,
+                                                "avgOrderSize":5283.506967,
+                                                "avgPrice":2.144065,
                                                 "commission":0.002,
                                                 "highPrice":4.004073,
-                                                "lastTradeTime":1422320538000,
+                                                "lastTradeTime":1422324452000,
                                                 "lowPrice":1.703072,
-                                                "orders":762,
-                                                "sumFees":8083.067425,
-                                                "sumSales":4041533.714931
+                                                "orders":765,
+                                                "sumFees":8083.765655,
+                                                "sumSales":4041882.829993
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtppc/trades_last30days.json",
                                             "sell":{
@@ -145,15 +145,15 @@
                                         },
                                         "week":{
                                             "buy":{
-                                                "avgOrderSize":2323.587407,
-                                                "avgPrice":2.569139,
+                                                "avgOrderSize":2158.046228,
+                                                "avgPrice":2.558581,
                                                 "commission":0.002,
                                                 "highPrice":3.321104,
-                                                "lastTradeTime":1422320538000,
+                                                "lastTradeTime":1422324452000,
                                                 "lowPrice":1.978108,
-                                                "orders":37,
-                                                "sumFees":171.945468,
-                                                "sumSales":85972.734076
+                                                "orders":40,
+                                                "sumFees":172.643698,
+                                                "sumSales":86321.849138
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtppc/trades_lastweek.json",
                                             "sell":{
@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.40098551,
+                                        "buyPrice":2.38944231,
                                         "crypto":"ppc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : btce - price : 0.414}  { feed : coinmarketcap_ne - price : 0.422907}  { feed : coinmarketcap_no - price : 0.424048}  ",
-                                        "price":0.414,
-                                        "sellPrice":2.42997101,
+                                        "otherFeeds":"{ feed : btce - price : 0.416}  { feed : coinmarketcap_ne - price : 0.414557}  { feed : coinmarketcap_no - price : 0.4177}  ",
+                                        "price":0.416,
+                                        "sellPrice":2.41828846,
                                         "source":"btce"
                                     }
                                 }
@@ -195,12 +195,12 @@
                                             "price":0
                                         },
                                         {
-                                            "exchangeAmount":366.61598404,
+                                            "exchangeAmount":374.52952568,
                                             "orderAmount":94603.0083,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"BTC",
-                                            "price":0.00387531
+                                            "price":0.00395896
                                         }
                                     ],
                                     "frozen":[],
@@ -273,15 +273,15 @@
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtbtc/trades_last30days.json",
                                             "sell":{
-                                                "avgOrderSize":11152.69230599,
-                                                "avgPrice":0.00370788,
+                                                "avgOrderSize":11175.38962112,
+                                                "avgPrice":0.00370908,
                                                 "commission":0.002,
                                                 "highPrice":0.00572255,
                                                 "lastTradeTime":1422317031000,
                                                 "lowPrice":0.00313203,
-                                                "orders":464,
-                                                "sumFees":10349.69761775,
-                                                "sumSales":5174849.229979
+                                                "orders":463,
+                                                "sumFees":10348.40995013,
+                                                "sumSales":5174205.39457996
                                             }
                                         },
                                         "week":{
@@ -312,13 +312,13 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtbtc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":0.00389387,
+                                        "buyPrice":0.00394315,
                                         "crypto":"BTC",
                                         "currency":"USD",
                                         "otherFeeds":"{\"price\":255.0",
-                                        "price":256.3,
-                                        "sellPrice":0.00390948,
-                                        "source":"bitcoinaverage"
+                                        "price":253.097,
+                                        "sellPrice":0.00395896,
+                                        "source":"ccedk"
                                     }
                                 }
                             },
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422324165494,
+    "reportGenerated":1422324699242,
     "reportRepository":"https://kiaratamm.github.io/"
 }
