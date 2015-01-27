@@ -766,17 +766,5 @@
 "amount":143.872695,
 "fee":0.28774538,
 "timestamp":1422282192000
-},
-
-"Trade_64195":{
-"id":"64195",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtppc",
-"type":"BUY",
-"price":2.07085,
-"amount":100.0,
-"fee":0.2,
-"timestamp":1422281228000
 }
 }
