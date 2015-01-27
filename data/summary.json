@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.25910909,
+                                        "buyPrice":2.29034101,
                                         "crypto":"ppc",
                                         "currency":"USD",
-                                        "otherFeeds":"{ feed : btce - price : 0.44}  { feed : coinmarketcap_ne - price : 0.44544}  { feed : coinmarketcap_no - price : 0.444731}  ",
-                                        "price":0.44,
-                                        "sellPrice":2.28638182,
+                                        "otherFeeds":"{ feed : btce - price : 0.434}  { feed : coinmarketcap_ne - price : 0.444059}  { feed : coinmarketcap_no - price : 0.449949}  ",
+                                        "price":0.434,
+                                        "sellPrice":2.31799078,
                                         "source":"btce"
                                     }
                                 }
@@ -195,12 +195,12 @@
                                             "price":0
                                         },
                                         {
-                                            "exchangeAmount":345.61600826,
+                                            "exchangeAmount":351.61667708,
                                             "orderAmount":94603.0083,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"BTC",
-                                            "price":0.00365333
+                                            "price":0.00371676
                                         }
                                     ],
                                     "frozen":[],
@@ -312,13 +312,13 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtbtc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":0,
-                                        "crypto":"",
-                                        "currency":"",
-                                        "otherFeeds":"",
-                                        "price":0,
-                                        "sellPrice":0,
-                                        "source":""
+                                        "buyPrice":0.00373028,
+                                        "crypto":"BTC",
+                                        "currency":"USD",
+                                        "otherFeeds":"{\"price\":255.0",
+                                        "price":267.54,
+                                        "sellPrice":0.00374523,
+                                        "source":"bitcoinaverage"
                                     }
                                 }
                             },
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422318761323,
+    "reportGenerated":1422319296983,
     "reportRepository":"https://kiaratamm.github.io/"
 }
