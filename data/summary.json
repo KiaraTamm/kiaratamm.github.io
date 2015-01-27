@@ -46,20 +46,20 @@
                                     "configuration":"https://kiaratamm.github.io/data/ccedk_nbtppc/options.json",
                                     "currentOrders":[
                                         {
-                                            "exchangeAmount":40453.834748,
-                                            "orderAmount":15668.6127,
+                                            "exchangeAmount":30294.043158,
+                                            "orderAmount":11703.0372,
                                             "orderCurrency":"NBT",
                                             "orderType":"BUY",
                                             "paymentCurrency":"PPC",
-                                            "price":2.58183896
+                                            "price":2.5885625
                                         },
                                         {
-                                            "exchangeAmount":42248.695424,
-                                            "orderAmount":16168.6068,
+                                            "exchangeAmount":44373.553821,
+                                            "orderAmount":16937.6831,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"PPC",
-                                            "price":2.61300779
+                                            "price":2.6198125
                                         }
                                     ],
                                     "frozen":[],
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422355299107,
+    "reportGenerated":1422355900726,
     "reportRepository":"https://kiaratamm.github.io/"
 }
