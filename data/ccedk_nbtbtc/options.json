@@ -30,7 +30,7 @@
                 }
             }, 
             "main-feed": "bitcoinaverage", 
-            "price-offset": 0.3, 
+            "price-offset": 0.55, 
             "wallchange-treshold": 0.125
         }, 
         "submit-liquidity": true, 
