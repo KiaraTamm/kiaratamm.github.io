@@ -10306,17 +10306,5 @@
 "amount":461.29963694,
 "fee":0.00292999,
 "timestamp":1419853501000
-},
-
-"Trade_32866":{
-"id":"32866",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtbtc",
-"type":"SELL",
-"price":0.00318682,
-"amount":313.79243258,
-"fee":0.00199999,
-"timestamp":1419848160000
 }
 }
