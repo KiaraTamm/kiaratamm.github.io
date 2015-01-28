@@ -211,15 +211,15 @@
                                     "trades":{
                                         "day":{
                                             "buy":{
-                                                "avgOrderSize":8507.00060214,
-                                                "avgPrice":0.0038576,
+                                                "avgOrderSize":8491.36434798,
+                                                "avgPrice":0.00387092,
                                                 "commission":0.002,
                                                 "highPrice":0.00393626,
                                                 "lastTradeTime":1422459150000,
-                                                "lowPrice":0.00378432,
-                                                "orders":13,
-                                                "sumFees":221.18201552,
-                                                "sumSales":110591.00782778
+                                                "lowPrice":0.0038308,
+                                                "orders":11,
+                                                "sumFees":186.81001554,
+                                                "sumSales":93405.00782778
                                             },
                                             "filePath":"https://kiaratamm.github.io/data/ccedk_nbtbtc/trades_lastday.json",
                                             "sell":{
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422465098101,
+    "reportGenerated":1422465700056,
     "reportRepository":"https://kiaratamm.github.io/"
 }
