@@ -3,13 +3,13 @@
         "null": [
             "feed:\"bter\"}"
         ], 
-        "buyprice": "0.00393626", 
+        "buyprice": "0.00390362", 
         "crypto": "BTC", 
         "currency": "USD", 
         "otherfeeds": "{\"price\":255.0", 
-        "price": "253.54", 
-        "sellprice": "0.00395204", 
+        "price": "255.66", 
+        "sellprice": "0.00391927", 
         "source": "bitcoinaverage", 
-        "timestamp": "Wed Jan 28 09:04:56 EST 2015"
+        "timestamp": "Wed Jan 28 09:22:10 EST 2015"
     }
 ]
