@@ -54,12 +54,12 @@
                                             "price":0
                                         },
                                         {
-                                            "exchangeAmount":83215.840794,
+                                            "exchangeAmount":84122.028614,
                                             "orderAmount":31555.2475,
                                             "orderCurrency":"NBT",
                                             "orderType":"SELL",
                                             "paymentCurrency":"PPC",
-                                            "price":2.63714746
+                                            "price":2.66586496
                                         }
                                     ],
                                     "frozen":[],
@@ -171,12 +171,12 @@
                                     },
                                     "wallDataFile":"https://kiaratamm.github.io/data/ccedk_nbtppc/wall_shifts.json",
                                     "wallshifts":{
-                                        "buyPrice":2.62661992,
+                                        "buyPrice":2.65522278,
                                         "crypto":"PPC",
                                         "currency":"USD",
-                                        "otherFeeds":"{\"price\":0.3779",
-                                        "price":0.379956,
-                                        "sellPrice":2.63714746,
+                                        "otherFeeds":"{\"price\":0.379956",
+                                        "price":0.375863,
+                                        "sellPrice":2.66586496,
                                         "source":"coinmarketcap_ne"
                                     }
                                 }
@@ -815,6 +815,6 @@
             "profilePath":"https://discuss.nubits.com/users/ktm"
         }
     ],
-    "reportGenerated":1422523992463,
+    "reportGenerated":1422524500556,
     "reportRepository":"https://kiaratamm.github.io/"
 }
