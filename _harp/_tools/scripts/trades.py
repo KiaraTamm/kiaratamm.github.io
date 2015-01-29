@@ -70,15 +70,15 @@ class fetchTradeData():
     while i == 0:
       # request the trade results from the exchange's API
       request_results = "java -jar NuGetLastTrades.jar %s \"%s\" \"%s\" %s %d > /dev/null 2>&1" % (exchange, apitoken, secret, pair, reportRange)
-      print request_results
+      #print request_results
       rr = subprocess.Popen(request_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
       log.logging.debug("Processing (%s, %s, %s)" %(exchange, pair, timefr))
       rr.communicate()
 
       # move results to exchange/pair directory
       move_results_path = os.path.join(data_dir, "%s_%s/trades_%s.json" % (exchange, dirPair, timefr))
-      move_results = ("mv last_trades_*.json %s" % (move_results_path))
-      print move_results
+      move_results = ("mv last_trades_%s_%s.json %s" % (exchange, dirPair, move_results_path))
+      log.logging.debug("move_results: %s" % (move_results))
       mv = subprocess.Popen(move_results , shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
       log.logging.debug("Moving results to %s" % (move_results_path))
       mv.communicate()
