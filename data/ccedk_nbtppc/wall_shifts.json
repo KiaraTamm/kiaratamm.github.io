@@ -3,13 +3,13 @@
         "null": [
             "feed:\"coinmarketcap_no\"}"
         ], 
-        "buyprice": "2.88662895", 
+        "buyprice": "2.8573719", 
         "crypto": "PPC", 
         "currency": "USD", 
-        "otherfeeds": "{\"price\":0.344475", 
-        "price": "0.345732", 
-        "sellprice": "2.8981986", 
+        "otherfeeds": "{\"price\":0.345969", 
+        "price": "0.349272", 
+        "sellprice": "2.8688243", 
         "source": "coinmarketcap_ne", 
-        "timestamp": "Wed Jan 28 19:35:59 EST 2015"
+        "timestamp": "Wed Jan 28 20:41:03 EST 2015"
     }
 ]
