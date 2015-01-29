@@ -30,7 +30,7 @@ gs.communicate()
 if reportconfig.PUBLISH_TO_GIT == True:
   # add to the local git branch, commit changes, publish to the custodian's 
   # remote github repo
-  git_build = ('cd %s;git add -A;git commit -avm"Automated report publishing - %s";torify git push origin master' % (git_local_path, git_pub_time))
+  git_build = ('cd %s;git add --all;git commit -avm"Automated report publishing - %s";torify git push origin master' % (git_local_path, git_pub_time))
   gb = subprocess.Popen(git_build, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
   log.logging.info("Pushing report to github repository")
   gb.communicate()
