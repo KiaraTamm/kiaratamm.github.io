@@ -2,36 +2,42 @@
     "options": {
         "apikey": "private", 
         "apisecret": "private", 
-        "dualside": false, 
+        "dualside": true, 
         "emergency-timeout": 60, 
         "exchangename": "excoin", 
-        "executeorders": false, 
-        "hipchat": false, 
+        "executeorders": true, 
+        "hipchat": true, 
         "keep-proceeds": 0, 
         "mail-notifications": false, 
         "mail-recipient": "private", 
-        "nubitaddress": "", 
+        "max-buy-order-volume": 0, 
+        "max-sell-order-volume": 0, 
+        "multiple-custodians": false, 
+        "nubitaddress": "B7mmVdVQ1SNNcT9zuQRK1B3Cbvo8vHeoB1", 
         "nudip": "private", 
         "nudport": "private", 
-        "pair": "nbt_btc", 
-        "priceincrement": "0.001", 
+        "pair": "btc_nbt", 
+        "priceincrement": 0.1, 
         "rpcpass": "private", 
         "rpcuser": "private", 
         "secondary-peg-options": {
             "backup-feeds": {
                 "backup1": {
-                    "name": "bitcoinaverage"
+                    "name": "blockchain"
                 }, 
                 "backup2": {
+                    "name": "coinbase"
+                }, 
+                "backup3": {
                     "name": "btce"
                 }
             }, 
-            "main-feed": "coinbase", 
-            "price-distance-threshold": 10, 
-            "wallchange-treshold": 0.125
+            "main-feed": "bitcoinaverage", 
+            "spread": 0.5, 
+            "wallshift-threshold": 0.2
         }, 
-        "submit-liquidity": false, 
-        "txfee": "0.2", 
+        "submit-liquidity": true, 
+        "txfee": 0.01, 
         "verbose": false
     }
 }
