@@ -286,17 +286,5 @@
 "amount":48.92245963,
 "fee":0.0978449,
 "timestamp":1420216537000
-},
-
-"Trade_35038":{
-"id":"35038",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtusd",
-"type":"SELL",
-"price":1.002,
-"amount":131.05002259,
-"fee":0.26262424,
-"timestamp":1420013797000
 }
 }
