@@ -3,13 +3,13 @@
         "null": [
             "feed:\"coinbase\"}"
         ], 
-        "buyprice": "0.00429007", 
+        "buyprice": "0.00431288", 
         "crypto": "BTC", 
         "currency": "USD", 
-        "otherfeeds": "{\"price\":233.83", 
-        "price": "232.63", 
-        "sellprice": "0.00430727", 
+        "otherfeeds": "{\"price\":233.27", 
+        "price": "231.4", 
+        "sellprice": "0.00433016", 
         "source": "bitcoinaverage", 
-        "timestamp": "Fri Jan 30 11:33:53 EST 2015"
+        "timestamp": "Fri Jan 30 12:06:25 EST 2015"
     }
 ]
