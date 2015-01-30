@@ -1,26 +1,3 @@
 {
 
-"Trade_69237":{
-"id":"69237",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtppc",
-"type":"BUY",
-"price":2.69942766,
-"amount":91.9747557,
-"fee":0.1839495,
-"timestamp":1422549350000
-},
-
-"Trade_69235":{
-"id":"69235",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtppc",
-"type":"BUY",
-"price":2.69942766,
-"amount":92.87924405,
-"fee":0.18575848,
-"timestamp":1422549349000
-}
 }
