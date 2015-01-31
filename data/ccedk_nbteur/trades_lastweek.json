@@ -1,5 +1,17 @@
 {
 
+"Trade_71570":{
+"id":"71570",
+"order_id":"null",
+"exchange":"ccedk",
+"pair":"nbteur",
+"type":"SELL",
+"price":0.8866472,
+"amount":0.60935736,
+"fee":0.00108055,
+"timestamp":1422727399000
+},
+
 "Trade_71562":{
 "id":"71562",
 "order_id":"null",
