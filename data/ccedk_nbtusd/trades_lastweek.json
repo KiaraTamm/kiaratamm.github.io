@@ -58,17 +58,5 @@
 "amount":337.49999769,
 "fee":0.67499998,
 "timestamp":1422167523000
-},
-
-"Trade_59514":{
-"id":"59514",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtusd",
-"type":"SELL",
-"price":1.002,
-"amount":673.65269461,
-"fee":1.34999999,
-"timestamp":1422124930000
 }
 }
