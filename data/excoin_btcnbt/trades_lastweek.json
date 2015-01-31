@@ -1,5 +1,17 @@
 {
 
+"Trade_d13e6d6f9e35b74f891c8d78dcd63b60":{
+"id":"d13e6d6f9e35b74f891c8d78dcd63b60",
+"order_id":"d13e6d6f9e35b74f891c8d78dcd63b60",
+"exchange":"excoin",
+"pair":"btcnbt",
+"type":"BUY",
+"price":231.855604,
+"amount":40.0,
+"fee":0.06,
+"timestamp":1422742365900
+},
+
 "Trade_069dcb4fcb9136fed0aad83c83d9dda2":{
 "id":"069dcb4fcb9136fed0aad83c83d9dda2",
 "order_id":"069dcb4fcb9136fed0aad83c83d9dda2",
