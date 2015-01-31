@@ -17998,17 +17998,5 @@
 "amount":0.08878796,
 "fee":0,
 "timestamp":1420114087000
-},
-
-"Trade_35974":{
-"id":"35974",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"ppcltc",
-"type":"SELL",
-"price":1.0E-6,
-"amount":0.1775761,
-"fee":0,
-"timestamp":1420113529000
 }
 }
