@@ -1,5 +1,17 @@
 {
 
+"Trade_71701":{
+"id":"71701",
+"order_id":"null",
+"exchange":"ccedk",
+"pair":"nbtbtc",
+"type":"BUY",
+"price":0.00460778,
+"amount":0.03951908,
+"fee":0.00007902,
+"timestamp":1422781363000
+},
+
 "Trade_71694":{
 "id":"71694",
 "order_id":"null",
