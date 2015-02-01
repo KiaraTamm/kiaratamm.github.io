@@ -1342,17 +1342,5 @@
 "amount":1970.68106462,
 "fee":3.94136212,
 "timestamp":1422202421000
-},
-
-"Trade_62020":{
-"id":"62020",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtppc",
-"type":"SELL",
-"price":2.25281879,
-"amount":1997.49754395,
-"fee":8.99999998,
-"timestamp":1422200333000
 }
 }
