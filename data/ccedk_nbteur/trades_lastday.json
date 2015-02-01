@@ -1,5 +1,17 @@
 {
 
+"Trade_71864":{
+"id":"71864",
+"order_id":"null",
+"exchange":"ccedk",
+"pair":"nbteur",
+"type":"SELL",
+"price":0.8866472,
+"amount":0.04094,
+"fee":0.00007259,
+"timestamp":1422813823000
+},
+
 "Trade_71838":{
 "id":"71838",
 "order_id":"null",
@@ -118,17 +130,5 @@
 "amount":0.07069892,
 "fee":0.00012535,
 "timestamp":1422730977000
-},
-
-"Trade_71570":{
-"id":"71570",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbteur",
-"type":"SELL",
-"price":0.8866472,
-"amount":0.60935736,
-"fee":0.00108055,
-"timestamp":1422727399000
 }
 }
