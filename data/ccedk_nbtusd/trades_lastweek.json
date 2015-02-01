@@ -1,14 +1,3 @@
 {
 
-"Trade_61847":{
-"id":"61847",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbtusd",
-"type":"BUY",
-"price":0.998,
-"amount":0.825649,
-"fee":0.00165128,
-"timestamp":1422194548000
-}
 }
