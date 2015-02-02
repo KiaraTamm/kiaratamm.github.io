@@ -106,17 +106,5 @@
 "amount":1.00216536,
 "fee":0.00150325,
 "timestamp":1422869392578
-},
-
-"Trade_6a526c68a5c4fa2aace4bb54ba5299a7":{
-"id":"6a526c68a5c4fa2aace4bb54ba5299a7",
-"order_id":"6a526c68a5c4fa2aace4bb54ba5299a7",
-"exchange":"excoin",
-"pair":"btcnbt",
-"type":"SELL",
-"price":227.710512,
-"amount":1.94667322,
-"fee":0.66491693,
-"timestamp":1422850210706
 }
 }
