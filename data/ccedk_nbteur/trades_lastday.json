@@ -142,17 +142,5 @@
 "amount":0.03971969,
 "fee":0.00007041,
 "timestamp":1422781361000
-},
-
-"Trade_71666":{
-"id":"71666",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbteur",
-"type":"SELL",
-"price":0.8866472,
-"amount":0.3310505,
-"fee":0.00058704,
-"timestamp":1422777913000
 }
 }
