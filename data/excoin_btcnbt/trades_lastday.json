@@ -1,5 +1,17 @@
 {
 
+"Trade_8995872d63eec89682294b477a5e9cd4":{
+"id":"8995872d63eec89682294b477a5e9cd4",
+"order_id":"8995872d63eec89682294b477a5e9cd4",
+"exchange":"excoin",
+"pair":"btcnbt",
+"type":"BUY",
+"price":238.41699,
+"amount":0.04999912,
+"fee":0.000075,
+"timestamp":1422961417073
+},
+
 "Trade_1364124fdf41700bd93caa25202880d3":{
 "id":"1364124fdf41700bd93caa25202880d3",
 "order_id":"1364124fdf41700bd93caa25202880d3",
@@ -622,17 +634,5 @@
 "amount":58.0229,
 "fee":0.08703435,
 "timestamp":1422878275785
-},
-
-"Trade_9f32af4bdd329161d2357eca4dc1ef5f":{
-"id":"9f32af4bdd329161d2357eca4dc1ef5f",
-"order_id":"9f32af4bdd329161d2357eca4dc1ef5f",
-"exchange":"excoin",
-"pair":"btcnbt",
-"type":"SELL",
-"price":224.221464,
-"amount":1.02991159,
-"fee":0.34639243,
-"timestamp":1422876449982
 }
 }
