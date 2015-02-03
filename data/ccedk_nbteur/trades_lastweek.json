@@ -430,17 +430,5 @@
 "amount":15.03602711,
 "fee":0.02688933,
 "timestamp":1422356839000
-},
-
-"Trade_65181":{
-"id":"65181",
-"order_id":"null",
-"exchange":"ccedk",
-"pair":"nbteur",
-"type":"BUY",
-"price":0.89059432,
-"amount":1.42175903,
-"fee":0.0028435,
-"timestamp":1422331483000
 }
 }
