@@ -634,17 +634,5 @@
 "amount":19.60844505,
 "fee":6.59318204,
 "timestamp":1422910824907
-},
-
-"Trade_11372bb98c8b0c72795791b0cecf4cae":{
-"id":"11372bb98c8b0c72795791b0cecf4cae",
-"order_id":"11372bb98c8b0c72795791b0cecf4cae",
-"exchange":"excoin",
-"pair":"btcnbt",
-"type":"BUY",
-"price":225.093232,
-"amount":19.55659767,
-"fee":0.0293349,
-"timestamp":1422908737648
 }
 }
