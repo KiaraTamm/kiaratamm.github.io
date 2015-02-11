@@ -10,11 +10,14 @@
         "keep-proceeds": 0, 
         "mail-notifications": false, 
         "mail-recipient": "private", 
+        "max-buy-order-volume": 5000, 
+        "max-sell-order-volume": 5000, 
+        "multiple-custodians": false, 
         "nubitaddress": "B7mmVdVQ1SNNcT9zuQRK1B3Cbvo8vHeoB1", 
         "nudip": "private", 
         "nudport": "private", 
         "pair": "nbt_eur", 
-        "priceincrement": "0.00001", 
+        "priceincrement": 0.1, 
         "rpcpass": "private", 
         "rpcuser": "private", 
         "secondary-peg-options": {
@@ -27,11 +30,11 @@
                 }
             }, 
             "main-feed": "yahoo", 
-            "price-distance-threshold": 10, 
-            "wallchange-treshold": 0.01
+            "spread": 0.5, 
+            "wallshift-threshold": 0.01
         }, 
         "submit-liquidity": true, 
-        "txfee": "0.2", 
+        "txfee": 0.2, 
         "verbose": false
     }
 }

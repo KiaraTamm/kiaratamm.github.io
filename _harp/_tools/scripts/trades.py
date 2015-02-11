@@ -47,6 +47,7 @@ class fetchTradeData():
   yesterday = (now - daysec)
   lastweek = (now - weeksec)
   lastmonth = (now - thirtydaysec)
+  #print yesterday, lastweek, lastmonth
 
   log.logging.info('Collecting trade data from exchanges')
 

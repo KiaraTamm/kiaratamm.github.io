@@ -30,10 +30,10 @@ import com.nubits.nubot.notifications.jhipchat.messages.Message;
 import com.nubits.nubot.options.OptionsJSON;
 import com.nubits.nubot.options.SecondaryPegOptionsJSON;
 import com.nubits.nubot.pricefeeds.PriceFeedManager;
-import com.nubits.nubot.tasks.strategy.PriceMonitorTriggerTask;
-import com.nubits.nubot.tasks.strategy.StrategySecondaryPegTask;
 import com.nubits.nubot.tasks.SubmitLiquidityinfoTask;
 import com.nubits.nubot.tasks.TaskManager;
+import com.nubits.nubot.tasks.strategy.PriceMonitorTriggerTask;
+import com.nubits.nubot.tasks.strategy.StrategySecondaryPegTask;
 import com.nubits.nubot.trading.TradeInterface;
 import com.nubits.nubot.trading.keys.ApiKeys;
 import com.nubits.nubot.trading.wrappers.CcexWrapper;
@@ -188,9 +188,10 @@ public class NuBot {
         if (txFeeResponse.isPositive()) {
             double txfee = (Double) txFeeResponse.getResponseObject();
             if (txfee == 0) {
-                LOG.warning("The bot detected a 0 TX fee : forcing a priceOffset of 0.1%");
-                Global.options.getSecondaryPegOptions().setPriceOffset(0.1);
-
+                LOG.warning("The bot detected a 0 TX fee : forcing a priceOffset of 0.1% [if required]");
+                if (Global.options.getSecondaryPegOptions().getSpread() < 0.1) {
+                    Global.options.getSecondaryPegOptions().setSpread(0.1);
+                }
             }
         }
 
@@ -328,23 +329,44 @@ public class NuBot {
                 ((PriceMonitorTriggerTask) (Global.taskManager.getPriceTriggerTask().getTask())).setOutputPath(outputPath);
                 FileSystem.writeToFile("timestamp,source,crypto,price,currency,sellprice,buyprice,otherfeeds\n", outputPath, false);
 
-                //set the interval from options
-                Global.taskManager.getPriceTriggerTask().setInterval(cpo.getRefreshTime());
+
+
+
 
                 //read the delay to sync with remote clock
                 //issue 136 - multi custodians on a pair.
                 //walls are removed and re-added every three minutes.
                 //Bot needs to wait for next 3 min window before placing walls
-                int delay = 1;
+                //set the interval from settings
+
+                int reset_every = Integer.parseInt(Global.settings.getProperty("reset_every_minutes")); //read from propeprties file
+                int refresh_time_seconds = Integer.parseInt(Global.settings.getProperty("refresh_time_seconds")); //read from propeprties file
+
+                int interval = 1;
+                if (!Global.options.isMultipleCustodians()) {
+                    interval = refresh_time_seconds;
+                } else {
+                    interval = 60 * reset_every;
+                    //Force the a spread to avoid collisions
+                    double forcedSpread = 0.9;
+                    LOG.info("Forcing a " + forcedSpread + "% minimum spread to protect from collisions");
+                    if (Global.options.getSecondaryPegOptions().getSpread() < forcedSpread) {
+                        Global.options.getSecondaryPegOptions().setSpread(forcedSpread);
+                    }
+                }
+
+                Global.taskManager.getPriceTriggerTask().setInterval(interval);
+
+                int delaySeconds = 0;
 
                 if (Global.options.isMultipleCustodians()) {
-                    delay = Utils.getSecondsToNextwindow(3);
-                    LOG.info("NuBot will be start running in " + delay + " seconds, to sync with remote NTP and place walls during next wall shift window.");
+                    delaySeconds = Utils.getSecondsToNextwindow(reset_every);
+                    LOG.info("NuBot will be start running in " + delaySeconds + " seconds, to sync with remote NTP and place walls during next wall shift window.");
                 } else {
                     LOG.warning("NuBot will not try to sync with other bots via remote NTP : 'multiple-custodians' is set to false");
                 }
                 //then start the thread
-                Global.taskManager.getPriceTriggerTask().start(delay);
+                Global.taskManager.getPriceTriggerTask().start(delaySeconds);
             }
         } else {
             LOG.severe("This bot doesn't work yet with trading pair " + Global.options.getPair().toString());
@@ -400,13 +422,23 @@ public class NuBot {
 
                     //reset liquidity info
                     if (Global.rpcClient.isConnected() && Global.options.isSendRPC()) {
-                        JSONObject responseObject = Global.rpcClient.submitLiquidityInfo(Global.rpcClient.USDchar,
-                                0, 0);
+                        //tier 1
                         LOG.info("Resetting Liquidity Info before quit");
-                        if (null == responseObject) {
+
+                        JSONObject responseObject1 = Global.rpcClient.submitLiquidityInfo(Global.rpcClient.USDchar,
+                                0, 0, 1);
+                        if (null == responseObject1) {
                             LOG.severe("Something went wrong while sending liquidityinfo");
                         } else {
-                            LOG.fine(responseObject.toJSONString());
+                            LOG.fine(responseObject1.toJSONString());
+                        }
+
+                        JSONObject responseObject2 = Global.rpcClient.submitLiquidityInfo(Global.rpcClient.USDchar,
+                                0, 0, 2);
+                        if (null == responseObject2) {
+                            LOG.severe("Something went wrong while sending liquidityinfo");
+                        } else {
+                            LOG.fine(responseObject2.toJSONString());
                         }
                     }
 

@@ -1,0 +1,15 @@
+[
+    {
+        "null": [
+            "feed:\"exchangeratelab\"}"
+        ], 
+        "buyprice": "0.88058381", 
+        "crypto": "EUR", 
+        "currency": "USD", 
+        "otherfeeds": "{\"price\":1.12992691", 
+        "price": "1.1305", 
+        "sellprice": "0.88854489", 
+        "source": "yahoo", 
+        "timestamp": "Wed Feb 11 14:29:46 EST 2015"
+    }
+]

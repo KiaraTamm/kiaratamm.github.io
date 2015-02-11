@@ -65,15 +65,23 @@ public class PriceMonitorTriggerTask extends TimerTask {
     private int MOVING_AVERAGE_SIZE = 30; //this is how many elements the Moving average queue holds
     private static final int REFRESH_OFFSET = 1000; //this is how close to the refresh interval is considered a fail (millisecond)
     private static final int PRICE_PERCENTAGE = 10; //this is the percentage at which refresh action is taken
+    private static int SLEEP_COUNT = 0;
 
     @Override
     public void run() {
+        //if a problem occurred we sleep for a period using the SLEEP_COUNTER
+        if (SLEEP_COUNT > 0) {
+            SLEEP_COUNT--;
+            currentTime = System.currentTimeMillis();
+            return;
+        }
+
+
         //take a note of the current time.
         //sudden changes in price can cause the bot to re-request the price data repeatedly
         // until the moving average is within 10% of the reported price.
         //we don't want that process to take longer than the price refresh interval
         currentTime = System.currentTimeMillis();
-
         LOG.fine("Executing task : PriceMonitorTriggerTask ");
         if (pfm == null || strategy == null) {
             LOG.severe("PriceMonitorTriggerTask task needs a PriceFeedManager and a Strategy to work. Please assign it before running it");
@@ -85,17 +93,20 @@ public class PriceMonitorTriggerTask extends TimerTask {
     }
 
     private void executeUpdatePrice(int countTrials) {
+
         if (countTrials <= MAX_ATTEMPTS) {
             ArrayList<LastPrice> priceList = pfm.getLastPrices().getPrices();
 
             LOG.fine("CheckLastPrice received values from remote feeds. ");
 
-            LOG.fine("Positive response from " + priceList.size() + "/" + pfm.getFeedList().size() + " feeds");
-            for (int i = 0; i < priceList.size(); i++) {
-                LastPrice tempPrice = priceList.get(i);
-                LOG.fine(tempPrice.getSource() + ":1 " + tempPrice.getCurrencyMeasured().getCode() + " = "
-                        + tempPrice.getPrice().getQuantity() + " " + tempPrice.getPrice().getCurrency().getCode());
-            }
+            /*
+             LOG.fine("Positive response from " + priceList.size() + "/" + pfm.getFeedList().size() + " feeds");
+             for (int i = 0; i < priceList.size(); i++) {
+             LastPrice tempPrice = priceList.get(i);
+             LOG.fine(tempPrice.getSource() + ":1 " + tempPrice.getCurrencyMeasured().getCode() + " = "
+             + tempPrice.getPrice().getQuantity() + " " + tempPrice.getPrice().getCurrency().getCode());
+             }
+             * */
 
             if (priceList.size() == pfm.getFeedList().size()) {
                 //All feeds returned a positive value
@@ -104,6 +115,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
                 if (sanityCheck(priceList, 0)) {
                     //mainPrice is reliable compared to the others
                     this.updateLastPrice(priceList.get(0));
+
                 } else {
                     //mainPrice is not reliable compared to the others
                     //Check if other backup prices are close enough to each other
@@ -119,6 +131,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
 
                     if (foundSomeValidBackUp) {
                         //goodPrice is a valid price backup!
+
                         this.updateLastPrice(goodPrice);
                     } else {
                         //None of the source are in accord with others.
@@ -131,6 +144,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
 
                 if (priceList.size() == 2) { // if only 2 values are available
                     if (closeEnough(priceList.get(0).getPrice().getQuantity(), priceList.get(1).getPrice().getQuantity())) {
+
                         this.updateLastPrice(priceList.get(0));
                     } else {
                         //The two values are too unreliable
@@ -149,6 +163,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
                     }
                     if (foundSomeValidBackUp) {
                         //goodPrice is a valid price backup!
+
                         this.updateLastPrice(goodPrice);
                     } else {
                         //None of the source are in accord with others.
@@ -160,24 +175,17 @@ public class PriceMonitorTriggerTask extends TimerTask {
                 }
             }
 
-            //We need to fill up the moving average queue sop that 30 data points exist.
-            //for speed we will use everything that's just been retrieved from every exchange
-            // to give a fair spread and make the average more representative
-            if (queueMA.size() < MOVING_AVERAGE_SIZE) {
-                //LOG.info("Collecting prices from exchanges to update the Moving Average");
-                for (Iterator<LastPrice> price = priceList.iterator(); price.hasNext();) {
-                    updateMovingAverageQueue(price.next().getPrice().getQuantity());
-                }
-                if (queueMA.size() < MOVING_AVERAGE_SIZE) {
-                    executeUpdatePrice(1);
-                }
-            }
-
         } else {
             //Tried more than three times without success
             LOG.severe("The price has failed updating more than " + MAX_ATTEMPTS + " times in a row");
             sendErrorNotification();
             Global.exchange.getTrade().clearOrders(Global.options.getPair());
+        }
+    }
+
+    private void initMA(double price) {
+        for (int i = 0; i <= 30; i++) {
+            updateMovingAverageQueue(price);
         }
     }
 
@@ -275,33 +283,40 @@ public class PriceMonitorTriggerTask extends TimerTask {
         }
     }
 
-    public void gracefulQuit(LastPrice lp) {
+    public void gracefulPause(LastPrice lp) {
         //This is called is an abnormal price is detected for one whole refresh period
         String logMessage;
         String notification;
         String subject;
         Color notificationColor;
-        boolean shutDown = false;
+        double sleepTime = 0;
 
         //we need to check the reason that the refresh took a whole period.
         //if it's because of a no connection issue, we need to wait to see if connection restarts
         if (!Global.exchange.getLiveData().isConnected()) {
             currentTime = System.currentTimeMillis();
-            logMessage = "There has been a connection issue for " + Global.options.getSecondaryPegOptions().getRefreshTime() + " seconds\n"
+
+
+            logMessage = "There has been a connection issue for " + Integer.parseInt(Global.settings.getProperty("refresh_time_seconds")) + " seconds\n"
                     + "Consider restarting the bot if the connection issue persists";
             notification = "";
             notificationColor = Color.YELLOW;
             subject = Global.exchange.getName() + " Bot is suffering a connection issue";
-        } else { //otherwise somthing bad has happened so we shutdown.
+
+        } else { //otherwise something bad has happened so we shutdown.
+            sleepTime = (Integer.parseInt(Global.settings.getProperty("refresh_time_seconds")) * 3);
+
             logMessage = "The Fetched Exchange rate data has remained outside of the required price band for "
-                    + Global.options.getSecondaryPegOptions().getRefreshTime() + "seconds.\nThe bot will notify and shutdown";
+                    + Integer.parseInt(Global.settings.getProperty("refresh_time_seconds")) + "seconds.\nThe bot will notify and restart in "
+                    + sleepTime + "seconds.";
             notification = "A large price difference was detected at " + Global.exchange.getName()
                     + ".\nThe Last obtained price of " + Objects.toString(lp.getPrice().getQuantity()) + " was outside of "
                     + Objects.toString(PRICE_PERCENTAGE) + "% of the moving average figure of " + Objects.toString(getMovingAverage())
-                    + ".\nAs a precautionary measure the walls have been removed and the bot shutdown until a manual check can take place";
-            notificationColor = Color.RED;
-            subject = Global.exchange.getName() + " Bot shutdown due to large price difference";
-            shutDown = true;
+                    + ".\nNuBot will remove the current orders and replace them in "
+                    + sleepTime + "seconds.";
+            notificationColor = Color.PURPLE;
+            subject = Global.exchange.getName() + " Moving Average issue. Bot will replace orders in "
+                    + sleepTime + "seconds.";
         }
         //we want to send Hip Chat and mail notifications,
         // cancel all orders to avoid arbitrage against the bot and
@@ -311,41 +326,54 @@ public class PriceMonitorTriggerTask extends TimerTask {
         HipChatNotifications.sendMessage(notification, notificationColor);
         LOG.severe("Sending Email");
         MailNotifications.send(Global.options.getMailRecipient(), subject, notification);
-        if (shutDown) {
+        if (sleepTime > 0) {
             LOG.severe("Cancelling Orders to avoid Arbitrage against the bot");
             Global.exchange.getTrade().clearOrders(Global.options.getPair());
-            LOG.severe("Shutting down");
-            System.exit(0);
+            //clear the moving average so the restart is fresh
+            queueMA.clear();
+            LOG.severe("Sleeping for " + sleepTime);
+            SLEEP_COUNT = 3;
         }
+        currentTime = System.currentTimeMillis();
     }
 
     public void updateLastPrice(LastPrice lp) {
-        //we check against the moving average
-        double current = lp.getPrice().getQuantity();
-        double MA = getMovingAverage();
 
-        //calculate the percentage difference
-        double percentageDiff = (((MA - current) / ((MA + current) / 2)) * 100);
-        if ((percentageDiff > PRICE_PERCENTAGE) || (percentageDiff < -PRICE_PERCENTAGE)) {
-            //The potential price is more than % different to the moving average
-            //add it to the MA-Queue to raise the Moving Average and re-request the currency data
-            //in this way we can react to a large change in price when we are sure it is not an anomaly
-            LOG.warning("Latest price " + Objects.toString(current) + " is " + Objects.toString(percentageDiff) + "% outside of the moving average of " + Objects.toString(MA) + "."
-                    + "\nShifting moving average and re-fetching exchange rate data.");
-            updateMovingAverageQueue(current);
-            executeUpdatePrice(1);
-            return;
+
+        //We need to fill up the moving average queue so that 30 data points exist.
+        if (queueMA.size() < MOVING_AVERAGE_SIZE) {
+            initMA(lp.getPrice().getQuantity());
         }
-        //the potential price is within the % boundary.
-        //add it to the MA-Queue to keep the moving average moving
-        // Only do this if the standard update interval hasn't passed
-        if (((System.currentTimeMillis() - (currentTime + REFRESH_OFFSET)) / 1000) < Global.options.getSecondaryPegOptions().getRefreshTime()) {
-            updateMovingAverageQueue(current);
-        } else {
-            //If we get here, we haven't had a price within % of the average for as long as a standard update period
-            //the action is to send notifications, cancel all orders and turn off the bot
-            gracefulQuit(lp);
-            return;
+
+        if (!Global.options.isMultipleCustodians()) {  //
+            //we check against the moving average
+            double current = lp.getPrice().getQuantity();
+            double MA = getMovingAverage();
+
+            //calculate the percentage difference
+            double percentageDiff = (((MA - current) / ((MA + current) / 2)) * 100);
+            if ((percentageDiff > PRICE_PERCENTAGE) || (percentageDiff < -PRICE_PERCENTAGE)) {
+                //The potential price is more than % different to the moving average
+                //add it to the MA-Queue to raise the Moving Average and re-request the currency data
+                //in this way we can react to a large change in price when we are sure it is not an anomaly
+                LOG.warning("Latest price " + Objects.toString(current) + " is " + Objects.toString(percentageDiff) + "% outside of the moving average of " + Objects.toString(MA) + "."
+                        + "\nShifting moving average and re-fetching exchange rate data.");
+                updateMovingAverageQueue(current);
+
+                executeUpdatePrice(1);
+                return;
+            }
+            //the potential price is within the % boundary.
+            //add it to the MA-Queue to keep the moving average moving
+            // Only do this if the standard update interval hasn't passed
+            if (((System.currentTimeMillis() - (currentTime + REFRESH_OFFSET)) / 1000L) < Integer.parseInt(Global.settings.getProperty("refresh_time_seconds"))) {
+                updateMovingAverageQueue(current);
+            } else {
+                //If we get here, we haven't had a price within % of the average for as long as a standard update period
+                //the action is to send notifications, cancel all orders and turn off the bot
+                gracefulPause(lp);
+                return;
+            }
         }
 
         //carry on with updating the wall price shift
@@ -370,12 +398,14 @@ public class PriceMonitorTriggerTask extends TimerTask {
 
         LOG.fine("Executing tryMoveWalls");
 
-        boolean needToMoveWalls = needToMoveWalls(lastPrice);
-        //check if price moved more than x% from when the wall was setup
+        boolean needToMoveWalls = true;
+        if (!Global.options.isMultipleCustodians()) {
+            needToMoveWalls(lastPrice);         //check if price moved more than x% from when the wall was setup
+        }
+
         if (needToMoveWalls && !isWallsBeingShifted()) { //prevent a wall shift trigger if the strategy is already shifting walls.
             LOG.info("Walls needs to be shifted");
             //Compute price for walls
-
             currentWallPEGPrice = lastPrice;
             computeNewPrices();
 
@@ -426,7 +456,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
             this.pegPriceDirection = Constant.DOWN;
         }
 
-        LOG.info(" Sell Price " + sellPricePEG_new + "\n"
+        LOG.info("Sell Price " + sellPricePEG_new + "  | "
                 + "Buy Price  " + buyPricePEG_new);
 
 
@@ -441,6 +471,7 @@ public class PriceMonitorTriggerTask extends TimerTask {
 
         strategy.notifyPriceChanged(sellPricePEG_new, buyPricePEG_new, price, pegPriceDirection);
 
+        Global.conversion = price;
         //Store values in class variable
         sellPricePEG_old = sellPricePEG_new;
 
@@ -463,9 +494,10 @@ public class PriceMonitorTriggerTask extends TimerTask {
             otherPricesAtThisTime.put("feed", tempPrice.getSource());
             otherPricesAtThisTime.put("price", tempPrice.getPrice().getQuantity());
         }
+        LOG.warning(row);
+
         row += otherPricesAtThisTime.toString() + "\n";
         backup_feeds.add(otherPricesAtThisTime);
-        LOG.warning(row);
         FileSystem.writeToFile(row, outputPath, true);
 
         //Also update a json version of the output file
